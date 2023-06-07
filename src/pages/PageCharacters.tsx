@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Characters, Paginate } from '../components'
 import { useGetPaginatedCharactersQuery } from '../store/apis'
+import { SkeletonCharacters } from '../components/skeletons'
 
 /**
  * Returns a JSX element that displays paginated character data.
@@ -24,7 +25,7 @@ export const PageCharacters = (): JSX.Element => {
 
   return (
     <div className="container mx-auto px-4">
-      {isLoading && <div>Loading...</div>}
+      {isLoading && <SkeletonCharacters items={10} />}
       {data != null && (
         <>
           <Characters characters={data.results} />

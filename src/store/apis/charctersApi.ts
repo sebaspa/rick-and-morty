@@ -14,7 +14,8 @@ export const charactersApi = createApi({
    */
   endpoints: (builder) => ({
     getPaginatedCharacters: builder.query<IResultApi, { page: number }>({
-      query: ({ page }) => `/character/?page=${page}`
+      query: ({ page }) => `/character/?page=${page}`,
+      keepUnusedDataFor: 300
     })
   })
 })
