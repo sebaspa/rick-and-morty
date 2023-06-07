@@ -1,4 +1,5 @@
-import { type Info, type Character } from '../types'
+import { Character } from '.'
+import { type IInfo, type ICharacter } from '../types'
 /**
  * Renders the Characters component which displays a div with the text
  * "Characters".
@@ -7,8 +8,8 @@ import { type Info, type Character } from '../types'
  */
 
 interface CharachersProps {
-  characters: Character[]
-  info: Info
+  characters: ICharacter[]
+  info: IInfo
 }
 
 export const Characters: React.FC<CharachersProps> = ({ characters, info }) => {
@@ -17,12 +18,12 @@ export const Characters: React.FC<CharachersProps> = ({ characters, info }) => {
       <h1>Characters</h1>
       <div className="grid grid-cols-12 gap-4">
         {characters.map((character) => (
-          <div key={character.id} className="col-span-12 md:col-span-4 lg:col-span-3">
-            {character.name}
+          <div key={character.id} className="col-span-12 lg:col-span-6">
+            <Character character={character} />
           </div>
         ))}
       </div>
-      <pre>{JSON.stringify(info, null, 2)}</pre>
+      <pre className='hidden'>{JSON.stringify(info, null, 2)}</pre>
     </>
   )
 }
