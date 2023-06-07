@@ -1,56 +1,37 @@
-import { createSlice } from "@reduxjs/toolkit";
-
-interface Character {
-  name: string;
-  status: string;
-  species: string;
-  type: string;
-  gender: string;
-  origin: {
-    name: string;
-    url: string;
-  };
-  location: {
-    name: string;
-    url: string;
-  };
-  image: string;
-  episode: string[];
-  url: string;
-  created: string;
-}
+import { createSlice } from '@reduxjs/toolkit'
+import { type Character, Gender, Species, Status } from '../../../types/characters'
 
 interface CharacterState {
-  character: Character;
-  lastsCharacters: Character[];
+  character: Character
+  lastsCharacters: Character[]
 }
 
 const initialState: CharacterState = {
   character: {
-    name: "",
-    status: "",
-    species: "",
-    type: "",
-    gender: "",
+    id: 0,
+    name: '',
+    status: Status.Unknown,
+    species: Species.Alien,
+    type: '',
+    gender: Gender.Unknown,
     origin: {
-      name: "",
-      url: "",
+      name: '',
+      url: ''
     },
     location: {
-      name: "",
-      url: "",
+      name: '',
+      url: ''
     },
-    image: "",
+    image: '',
     episode: [],
-    url: "",
-    created: "",
+    url: '',
+    created: new Date()
   },
-  lastsCharacters: [],
-};
+  lastsCharacters: []
+}
 
 export const characterSlice = createSlice({
-  name: "character",
+  name: 'character',
   initialState,
-  reducers: {},
+  reducers: {}
 })
-

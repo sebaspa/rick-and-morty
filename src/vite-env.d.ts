@@ -1,1 +1,3 @@
-/// <reference types="vite/client" />
+// @ts-gnore Hola
+// <reference types="vite/client" />
+import 'react-scripts'
