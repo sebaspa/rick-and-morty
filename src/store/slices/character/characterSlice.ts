@@ -1,19 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { type Character, Gender, Species, Status } from '../../../types/characters'
+import { type ICharacter, EGender, ESpecies, EStatus } from '../../../types/characters'
 
 interface CharacterState {
-  character: Character
-  lastsCharacters: Character[]
+  character: ICharacter
+  lastsCharacters: ICharacter[]
 }
 
 const initialState: CharacterState = {
   character: {
     id: 0,
     name: '',
-    status: Status.Unknown,
-    species: Species.Alien,
+    status: EStatus.Unknown,
+    species: ESpecies.Alien,
     type: '',
-    gender: Gender.Unknown,
+    gender: EGender.Unknown,
     origin: {
       name: '',
       url: ''
