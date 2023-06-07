@@ -7,7 +7,7 @@ export const store = configureStore({
     character: characterSlice.reducer,
     [charactersApi.reducerPath]: charactersApi.reducer
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(charactersApi.middleware)
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }).concat(charactersApi.middleware)
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

@@ -1,9 +1,12 @@
-import { Characters } from './components'
+import { Routes, Route } from 'react-router-dom'
+import { PageCharacters } from './pages'
 
 export const App: React.FC = () => {
   return (
-    <div className='text-xl'>
-      <Characters />
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<PageCharacters /> } index />
+      </Routes>
+    </>
   )
 }
