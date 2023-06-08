@@ -11,6 +11,12 @@ interface CharachersProps {
   characters: ICharacter[]
 }
 
+/**
+ * Renders a list of characters using the provided character data.
+ *
+ * @param {CharachersProps} characters - An array of character objects to be rendered.
+ * @return {JSX.Element} A React element representing the list of characters.
+ */
 export const Characters: React.FC<CharachersProps> = ({
   characters
 }) => {

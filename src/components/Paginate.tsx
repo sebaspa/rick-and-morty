@@ -7,7 +7,17 @@ interface PaginateProps {
   onNextPage: () => void
   onPrevPage: () => void
 }
-
+/**
+ * This function renders a pagination UI component for a specific page and total number of items.
+ *
+ * @param {Object} props - The props object containing:
+ *   @param {number} page - The current page being displayed.
+ *   @param {number} itemsCount - The number of items currently displayed on the page.
+ *   @param {number} itemsTotal - The total number of items available to display.
+ *   @param {Function} onNextPage - The function to call when the user clicks the "next" button.
+ *   @param {Function} onPrevPage - The function to call when the user clicks the "prev" button.
+ * @return {JSX.Element} The pagination UI component.
+ */
 export const Paginate: React.FC<PaginateProps> = ({
   page,
   itemsCount,

@@ -1,3 +1,8 @@
+/**
+ * Returns a JSX element that renders a skeleton character with a picture placeholder and some text placeholders.
+ *
+ * @return {JSX.Element} The skeleton character JSX element.
+ */
 export const SkeletonCharacter = (): JSX.Element => {
   return (
     <div className="col-span-12 lg:col-span-6">
