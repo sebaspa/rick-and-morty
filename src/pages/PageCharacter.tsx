@@ -18,7 +18,7 @@ export const PageCharacter = (): JSX.Element => {
   )
 
   return (
-    <div className="container mx-auto px-4">
+    <>
       {isLoading && <SkeletonCharacterDetail />}
       {character != null && (
         <>
@@ -71,6 +71,6 @@ export const PageCharacter = (): JSX.Element => {
           </div>
         </>
       )}
-    </div>
+    </>
   )
 }

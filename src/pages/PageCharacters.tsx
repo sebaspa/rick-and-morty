@@ -24,7 +24,7 @@ export const PageCharacters = (): JSX.Element => {
   }
 
   return (
-    <div className="container mx-auto px-4">
+    <>
       {isLoading && <SkeletonCharacters items={10} />}
       {data !== undefined && (
         <>
@@ -32,6 +32,6 @@ export const PageCharacters = (): JSX.Element => {
           <Paginate onNextPage={nextPage} onPrevPage={prevPage} page={page} itemsCount={data.results.length} itemsTotal={data.info.count} />
         </>
       )}
-    </div>
+    </>
   )
 }
