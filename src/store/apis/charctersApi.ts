@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { type IResultApi } from '../../types'
+import { type ICharacter, type IResultApi } from '../../types'
 
 export const charactersApi = createApi({
   reducerPath: 'characters',
@@ -16,8 +16,13 @@ export const charactersApi = createApi({
     getPaginatedCharacters: builder.query<IResultApi, { page: number }>({
       query: ({ page }) => `/character/?page=${page}`,
       keepUnusedDataFor: 300
+    }),
+    getCharacterById: builder.query<ICharacter, string>({
+      query: (id) => `/character/${id}`,
+      keepUnusedDataFor: 300
     })
+
   })
 })
 
-export const { useGetPaginatedCharactersQuery } = charactersApi
+export const { useGetPaginatedCharactersQuery, useGetCharacterByIdQuery } = charactersApi

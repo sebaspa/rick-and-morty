@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Character } from '.'
 import { type ICharacter } from '../types'
 /**
@@ -25,7 +26,9 @@ export const Characters: React.FC<CharachersProps> = ({
       <div className="grid grid-cols-12 gap-4">
         {characters.map((character) => (
           <div key={character.id} className="col-span-12 lg:col-span-6">
-            <Character character={character} />
+            <Link to={`/character/${character.id}`}>
+              <Character character={character} />
+            </Link>
           </div>
         ))}
       </div>

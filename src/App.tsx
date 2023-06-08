@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { PageCharacters } from './pages'
+import { PageCharacter, PageCharacters } from './pages'
 
 /**
  * React functional component for rendering the App.
@@ -11,6 +11,7 @@ export const App: React.FC = () => {
     <>
       <Routes>
         <Route path="/" element={<PageCharacters /> } index />
+        <Route path="/character/:id" element={<PageCharacter /> } />
       </Routes>
     </>
   )
