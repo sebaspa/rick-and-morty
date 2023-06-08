@@ -1,13 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { characterSlice } from './slices/character'
-import { charactersApi } from './apis'
+import { charactersApi, locationsApi } from './apis'
 
 export const store = configureStore({
   reducer: {
     character: characterSlice.reducer,
-    [charactersApi.reducerPath]: charactersApi.reducer
+    [charactersApi.reducerPath]: charactersApi.reducer,
+    [locationsApi.reducerPath]: locationsApi.reducer
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }).concat(charactersApi.middleware)
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ serializableCheck: false })
+      .concat(charactersApi.middleware)
+      .concat(locationsApi.middleware)
+  // devTools: process.env.NODE_ENV !== 'production'
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

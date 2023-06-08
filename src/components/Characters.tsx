@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Character } from '.'
 import { type ICharacter } from '../types'
 /**
@@ -11,6 +12,12 @@ interface CharachersProps {
   characters: ICharacter[]
 }
 
+/**
+ * Renders a list of characters using the provided character data.
+ *
+ * @param {CharachersProps} characters - An array of character objects to be rendered.
+ * @return {JSX.Element} A React element representing the list of characters.
+ */
 export const Characters: React.FC<CharachersProps> = ({
   characters
 }) => {
@@ -19,7 +26,9 @@ export const Characters: React.FC<CharachersProps> = ({
       <div className="grid grid-cols-12 gap-4">
         {characters.map((character) => (
           <div key={character.id} className="col-span-12 lg:col-span-6">
-            <Character character={character} />
+            <Link to={`/character/${character.id}`}>
+              <Character character={character} />
+            </Link>
           </div>
         ))}
       </div>

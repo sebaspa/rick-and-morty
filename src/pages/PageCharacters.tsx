@@ -13,7 +13,7 @@ export const PageCharacters = (): JSX.Element => {
   const { data, isLoading } = useGetPaginatedCharactersQuery({ page })
 
   const nextPage = (): void => {
-    if (data != null) {
+    if (data !== undefined) {
       if (page >= data.info.pages) return
       setPage(page + 1)
     }
@@ -26,7 +26,7 @@ export const PageCharacters = (): JSX.Element => {
   return (
     <div className="container mx-auto px-4">
       {isLoading && <SkeletonCharacters items={10} />}
-      {data != null && (
+      {data !== undefined && (
         <>
           <Characters characters={data.results} />
           <Paginate onNextPage={nextPage} onPrevPage={prevPage} page={page} itemsCount={data.results.length} itemsTotal={data.info.count} />

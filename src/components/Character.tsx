@@ -3,7 +3,12 @@ import { type ICharacter } from '../types'
 interface CharacterProps {
   character: ICharacter
 }
-
+/**
+ * Renders a character component with name, image, status, and species.
+ *
+ * @param {CharacterProps} character - the character object to render
+ * @return {JSX.Element} the rendered character component
+ */
 export const Character: React.FC<CharacterProps> = ({ character }) => {
   return (
     <div className="flex flex-col sm:flex-row gap-3 bg-gray-500 rounded-2xl">
