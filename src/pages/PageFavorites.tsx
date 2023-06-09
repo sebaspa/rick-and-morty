@@ -8,10 +8,20 @@ import { Characters } from '../components'
  * @return {JSX.Element} The JSX element containing the favorite characters.
  */
 export const PageFavorites = (): JSX.Element => {
-  const favorites = useSelector((state: RootState) => state.character.favoriteCharacters)
+  const favorites = useSelector(
+    (state: RootState) => state.character.favoriteCharacters
+  )
   return (
     <>
-    <Characters characters={favorites} />
+      {favorites.length === 0
+        ? (
+        <>
+          <h1 className='text-2xl'>No hay personajes favoritos.</h1>
+        </>
+          )
+        : (
+        <Characters characters={favorites.slice(-5)} />
+          )}
     </>
   )
 }
