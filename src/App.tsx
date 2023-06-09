@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { PageCharacter, PageCharacters } from './pages'
+import { PageCharacter, PageCharacters, PageFavorites } from './pages'
 import { MainLayout } from './layouts'
 
 /**
@@ -14,6 +14,7 @@ export const App: React.FC = () => {
         <Route path="/" element={<MainLayout />}>
           <Route element={<PageCharacters />} index />
           <Route path="/character/:id" element={<PageCharacter />} />
+          <Route path="/favorites" element={<PageFavorites />} />
         </Route>
       </Routes>
     </>

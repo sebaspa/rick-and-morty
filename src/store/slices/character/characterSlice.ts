@@ -1,37 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { type ICharacter, EGender, ESpecies, EStatus } from '../../../types/characters'
+import { type ICharacter } from '../../../types/characters'
 
 interface CharacterState {
-  character: ICharacter
-  lastsCharacters: ICharacter[]
+  favoriteCharacters: ICharacter[]
 }
 
 const initialState: CharacterState = {
-  character: {
-    id: 0,
-    name: '',
-    status: EStatus.Unknown,
-    species: ESpecies.Alien,
-    type: '',
-    gender: EGender.Unknown,
-    origin: {
-      name: '',
-      url: ''
-    },
-    location: {
-      name: '',
-      url: ''
-    },
-    image: '',
-    episode: [],
-    url: '',
-    created: new Date()
-  },
-  lastsCharacters: []
+  favoriteCharacters: []
 }
 
 export const characterSlice = createSlice({
   name: 'character',
   initialState,
-  reducers: {}
+  reducers: {
+    addFavoriteCharacter: (state, action) => {
+      const character = state.favoriteCharacters.find(
+        (character) => character.id === action.payload.id
+      )
+      if (character == null) {
+        state.favoriteCharacters.push(action.payload)
+      }
+    }
+  }
 })
+
+export const { addFavoriteCharacter } = characterSlice.actions
