@@ -35,19 +35,36 @@ export const PageCharacter = (): JSX.Element => {
             </div>
             <div className="col-span-12 sm:col-span-6 lg:col-span-2">
               <h2 className="font-bold text-lg mb-2">Información personal</h2>
-              <p><span className='font-bold'>Estado: </span> {character.status}</p>
-              <p><span className='font-bold'>Especie: </span> {character.species}</p>
-              <p><span className='font-bold'>Tipo: </span> {character.type !== '' ? character.type : '-'}</p>
-              <p><span className='font-bold'>Género: </span> {character.gender}</p>
+              <p>
+                <span className="font-bold">Estado: </span> {character.status}
+              </p>
+              <p>
+                <span className="font-bold">Especie: </span> {character.species}
+              </p>
+              <p>
+                <span className="font-bold">Tipo: </span>{' '}
+                {character.type !== '' ? character.type : '-'}
+              </p>
+              <p>
+                <span className="font-bold">Género: </span> {character.gender}
+              </p>
             </div>
             <div className="col-span-12 sm:col-span-6 lg:col-span-4">
               <h2 className="font-bold text-lg mb-2">Origen</h2>
               {character.origin.url !== ''
                 ? (
                 <>
-                  <p><span className='font-bold'>Nombre: </span> {origin?.name !== '' ? origin?.name : '-'}</p>
-                  <p><span className='font-bold'>Tipo: </span> {origin?.type}</p>
-                  <p><span className='font-bold'>Dimensión: </span> {origin?.dimension}</p>
+                  <p>
+                    <span className="font-bold">Nombre: </span>{' '}
+                    {origin?.name !== '' ? origin?.name : '-'}
+                  </p>
+                  <p>
+                    <span className="font-bold">Tipo: </span> {origin?.type}
+                  </p>
+                  <p>
+                    <span className="font-bold">Dimensión: </span>{' '}
+                    {origin?.dimension}
+                  </p>
                 </>
                   )
                 : (
@@ -59,9 +76,16 @@ export const PageCharacter = (): JSX.Element => {
               {character.location.url !== ''
                 ? (
                 <>
-                  <p><span className='font-bold'>Nombre:</span> {location?.name}</p>
-                  <p><span className='font-bold'>Tipo:</span> {location?.type}</p>
-                  <p><span className='font-bold'>Dimensión:</span> {location?.dimension}</p>
+                  <p>
+                    <span className="font-bold">Nombre:</span> {location?.name}
+                  </p>
+                  <p>
+                    <span className="font-bold">Tipo:</span> {location?.type}
+                  </p>
+                  <p>
+                    <span className="font-bold">Dimensión:</span>{' '}
+                    {location?.dimension}
+                  </p>
                 </>
                   )
                 : (
