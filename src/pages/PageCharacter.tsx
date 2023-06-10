@@ -8,13 +8,17 @@ import { SkeletonCharacterDetail } from '../components/skeletons'
 export const PageCharacter = (): JSX.Element => {
   const { id = '1' } = useParams()
   const { data: character, isLoading } = useGetCharacterByIdQuery(id)
+
+  const originId = !isNaN(Number(character?.origin?.url?.split('/').pop())) ? Number(character?.origin?.url?.split('/').pop()) : 0
+  const locationId = !isNaN(Number(character?.location?.url?.split('/').pop())) ? Number(character?.location?.url?.split('/').pop()) : 0
+
   const { data: origin } = useGetLocationByIdQuery(
-    character?.origin?.url?.split('/').pop(),
-    { skip: !character?.location?.url }
+    { id: originId },
+    { skip: false }
   )
   const { data: location } = useGetLocationByIdQuery(
-    character?.location?.url?.split('/').pop(),
-    { skip: !character?.location?.url }
+    { id: locationId },
+    { skip: false }
   )
 
   return (

@@ -13,8 +13,8 @@ export const locationsApi = createApi({
    * @returns {Object} An object with various endpoint functions.
    */
   endpoints: (builder) => ({
-    getLocationById: builder.query<ILocationDetail, string>({
-      query: (id) => `/location/${id}`,
+    getLocationById: builder.query<ILocationDetail, { id: number }>({
+      query: ({ id }) => `/location/${id}`,
       keepUnusedDataFor: 300
     })
   })
