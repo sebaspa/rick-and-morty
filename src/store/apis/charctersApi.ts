@@ -13,8 +13,8 @@ export const charactersApi = createApi({
    * @returns {Object} An object with various endpoint functions.
    */
   endpoints: (builder) => ({
-    getPaginatedCharacters: builder.query<IResultApi, { page: number }>({
-      query: ({ page }) => `/character/?page=${page}`,
+    getPaginatedCharacters: builder.query<IResultApi, { page: number, name: string }>({
+      query: ({ page, name }) => `/character/?page=${page}&name=${name}`,
       keepUnusedDataFor: 300
     }),
     getCharacterById: builder.query<ICharacter, string>({
